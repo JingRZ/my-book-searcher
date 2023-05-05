@@ -8,6 +8,7 @@ function SearchForm({ onSearch }) {
     const [title, setTitle] = useState('');
     const [orderByDate, setIsDateChecked] = useState(false);
     const [onlyFreeEBook, setIsFreeChecked] = useState(false);
+    const [showLoader, setLoaderVisibility] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,11 +37,13 @@ function SearchForm({ onSearch }) {
 
         let url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=40`;
 
+        setLoaderVisibility(true);
+
         axios.get(url)
         .then(res => {
             const books = res.data.items;
+            setLoaderVisibility(false);
             onSearch(books);
-        //   this.setState({ books });
         })
     };
 
@@ -88,6 +91,7 @@ function SearchForm({ onSearch }) {
                 </div>
                 </div>
             </div>  
+            {showLoader && <span class="loader"></span>}
         </div>
     )
 }

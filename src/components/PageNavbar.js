@@ -1,8 +1,34 @@
 import React from 'react';
-
-
+import EditableField from './EditableUsername';
 
 export default class PageNavbar extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this. state = {
+      username: ""
+    };
+
+    this.handleSave = this.handleSave.bind(this);
+  }
+
+ 
+
+  handleSave = (value) => {
+    localStorage.setItem('username', value);
+    this.setState({ username: value });
+  }
+
+  componentDidMount() {
+    const storedData = localStorage.getItem('username');
+    if (storedData) {
+      this.setState(JSON.parse(storedData));
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('username', JSON.stringify(this.state));
+  }
 
   render() {
     return (
@@ -13,22 +39,18 @@ export default class PageNavbar extends React.Component {
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Seach</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-            </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
           </div>
 
-          <div>
-            <img class="w-25" src="usuario.png" />
-              <label>username</label>
-          </div> */}
+          <EditableField value="Default User" onSave={this.handleSave}/>
+          <div class="user-icon">
+
+          </div>
+          
       </nav>
+
+      
     )
   }
 }
