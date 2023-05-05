@@ -13,9 +13,9 @@
       "sizes": "192x192"
     },
     {
-      "src": "images/icons/270penguin.png",
+      "src": "images/icons/512penguin.png",
       "type": "image/png",
-      "sizes": "270x270"
+      "sizes": "512x512"
     }
   ],
   "start_url": "/my-book-searcher/",
