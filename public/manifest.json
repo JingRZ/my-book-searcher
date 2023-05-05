@@ -18,9 +18,9 @@
       "sizes": "270x270"
     }
   ],
-  "start_url": "/",
+  "start_url": "/my-book-searcher/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "scope": "/" 
+  "scope": "/my-book-searcher/" 
 }
