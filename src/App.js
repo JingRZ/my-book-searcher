@@ -15,13 +15,13 @@ class App extends Component {
     super(props);
     this.state = {
       books: null,
-      error: null,
+      showResult: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async handleSubmit(books) {
-    this.setState({ books: books });
+    this.setState({ books: books, showResult: true });
   }
 
   componentDidUpdate() {
@@ -29,12 +29,12 @@ class App extends Component {
   }
 
   render() {
-    const { books } = this.state;
+    const { books, showResult } = this.state;
     return (
       <div className="App">
         <PageNavbar />
         <SearchForm onSearch={this.handleSubmit} />
-        {books && <BookList books={books} />}
+        {showResult && <BookList books={books} />}
       </div>
     );
   }

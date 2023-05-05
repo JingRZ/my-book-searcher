@@ -22,15 +22,15 @@ function BookList({ books }) {
                                 <p class="card-text text-md-start text-sm-center">Autor: {book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Autor desconocido"}</p>
                                 <p class="card-text text-md-start text-sm-center"><small class="text-muted">Fecha de publicación: {new Date(book.volumeInfo.publishedDate).toLocaleDateString(navigator.language, {year: 'numeric', month: 'long', day: 'numeric'})}</small></p>
                                 <p class="card-text text-md-start text-sm-center">Puntuación: {book.volumeInfo.averageRating ? book.volumeInfo.averageRating + "/5" : "Sin calificar"}</p>
+                                <p class="card-text text-md-start text-sm-center card-description">{book.volumeInfo.description}</p>
                             </div>
                         </div>
                       </div>
                   </div>
               </div>
           ): (
-              <div>
-                  <p>No se encontraron libros</p>
-                  <img src="https://i.kym-cdn.com/entries/icons/mobile/000/026/489/crying.jpg" alt="alternatetext"/>
+              <div class="p-5">
+                  <img src="https://www.pintzap.com/storage/img/memegenerator/memes/t/500/74qGnHHj.webp" alt="alternatetext"/>
               </div>
           )}
           </div>
