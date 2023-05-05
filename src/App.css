@@ -45,11 +45,20 @@
 
 
 .main-banner{
-  background-image: url('/public/main_page_wider.jpg');
+  background-image: url('/public/images/main_page_wider.jpg');
   background-size: cover;
   background-position: center;
   min-height: 80vh;
   position: relative;
+}
+
+.navbar > div.app-icon{
+  background-image: url('/public/images/penguin.jpg');
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  border: none;
 }
 
 .search-box{
@@ -66,15 +75,16 @@
   transform: translateY(50%);
 }
 
-
-.search-box > *{
-  z-index: 1;
-}
-
 .w-90{
   width: 90%!important;
 }
 
+
+.book-cover{
+  /* width: 155px; */
+  /* max-width: 155px; */
+  height: 250px;
+}
 
 
 
