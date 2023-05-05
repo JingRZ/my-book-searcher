@@ -5,32 +5,35 @@ export default class PageNavbar extends React.Component {
 
   constructor(props) {
     super(props);
-    this. state = {
-      username: ""
+    this.state = {
+      username: "nu123ll",
     };
 
     this.handleSave = this.handleSave.bind(this);
   }
 
- 
-
   handleSave = (value) => {
-    localStorage.setItem('username', value);
     this.setState({ username: value });
+    localStorage.setItem('username', JSON.stringify(value));
   }
 
+
   componentDidMount() {
-    const storedData = localStorage.getItem('username');
-    if (storedData) {
-      this.setState(JSON.parse(storedData));
+    const storedUsername = JSON.parse(localStorage.getItem('username'));
+    if (storedUsername) {
+      this.setState({ username: storedUsername });
     }
   }
 
-  componentDidUpdate() {
-    localStorage.setItem('username', JSON.stringify(this.state));
-  }
+  // componentDidUpdate() {
+  //   localStorage.setItem('username', JSON.stringify(this.state.username));
+  // }
 
   render() {
+
+    const storedUsername = JSON.parse(localStorage.getItem('username'));
+    const defaultUsername = storedUsername? storedUsername: "Default";
+    
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
           <div class="app-icon mx-2"/>
@@ -40,17 +43,11 @@ export default class PageNavbar extends React.Component {
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
-          </div>
-
-          <EditableField value="Default User" onSave={this.handleSave}/>
-          <div class="user-icon">
-
           </div>
           
+          <EditableField value={defaultUsername} onSave={this.handleSave}/>
+          <div class="user-icon"></div>
       </nav>
-
-      
     )
   }
 }
