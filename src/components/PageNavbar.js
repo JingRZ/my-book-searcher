@@ -13,7 +13,7 @@ export default class PageNavbar extends React.Component {
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Seach</a>
@@ -24,7 +24,7 @@ export default class PageNavbar extends React.Component {
             </ul>
           </div>
 
-          {/* <div>
+          <div>
             <img class="w-25" src="usuario.png" />
               <label>username</label>
           </div> */}

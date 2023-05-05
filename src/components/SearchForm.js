@@ -67,7 +67,7 @@ function SearchForm({ onSearch }) {
                 <div class="row col-md-10 search-box">
                 <div class="d-flex justify-content-center align-items-center">
                     <form class="w-90" onSubmit={handleSubmit} onChange={handleChange}>
-                        <div class="row form-group">
+                        <div class="row form-group form-control-lg">
                             <input type="text" value={title} class="form-control form-control-lg m-2" id="title_input" placeholder="Book Title"/>
                             <input type="text" value={author} class="form-control form-control-lg m-2" id="author_input" placeholder="Book Author"/>
                             <div class="col col-md-10 pt-3 text-start">
@@ -81,7 +81,7 @@ function SearchForm({ onSearch }) {
                                 </div>
                             </div>
                             <div class="col col-md-2 ">
-                                <button type="submit" class="btn btn-secondary btn-lg w-100 m-3">Search</button>
+                                <button type="submit" class="btn btn-primary btn-lg w-100 m-3">Search</button>
                             </div>
                         </div>
                     </form>
