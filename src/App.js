@@ -26,10 +26,6 @@ class App extends Component {
     this.setState({ books: books, showResult: true, showRecom: false });
   }
 
-  componentDidUpdate() {
-    localStorage.setItem('myAppData', JSON.stringify(this.state));
-  }
-
   render() {
     const { books, showResult, showRecom } = this.state;
     return (
