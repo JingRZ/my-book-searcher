@@ -7,6 +7,7 @@ import BookList from './components/BookList';
 import PageNavbar from './components/PageNavbar';
 import SearchForm from './components/SearchForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Recommendations from './components/Recommendations';
 
 
 class App extends Component {
@@ -15,13 +16,14 @@ class App extends Component {
     super(props);
     this.state = {
       books: null,
-      showResult: false
+      showResult: false,
+      showRecom: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async handleSubmit(books) {
-    this.setState({ books: books, showResult: true });
+    this.setState({ books: books, showResult: true, showRecom: false });
   }
 
   componentDidUpdate() {
@@ -29,12 +31,13 @@ class App extends Component {
   }
 
   render() {
-    const { books, showResult } = this.state;
+    const { books, showResult, showRecom } = this.state;
     return (
       <div className="App">
         <PageNavbar />
         <SearchForm onSearch={this.handleSubmit} />
         {showResult && <BookList books={books} />}
+        {showRecom && <Recommendations/>}
       </div>
     );
   }

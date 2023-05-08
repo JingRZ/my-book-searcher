@@ -35,7 +35,7 @@ function SearchForm({ onSearch }) {
             q+='&orderBy=newest'
         }
 
-        let url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=40`;
+        let url = `https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=10`;
 
         setLoaderVisibility(true);
 
@@ -43,6 +43,16 @@ function SearchForm({ onSearch }) {
         .then(res => {
             const books = res.data.items;
             setLoaderVisibility(false);
+
+            if(books){
+                for (let i = 0; i < books.length; i++) {
+                    const item = books[i];
+                    if (item.volumeInfo.categories) {
+                        localStorage.setItem('searchedGenre', JSON.stringify(item.volumeInfo.categories[0]));
+                      break;
+                    }
+                }
+            }
             onSearch(books);
         })
     };
