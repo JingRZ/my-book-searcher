@@ -41,11 +41,11 @@ export default class Recommendations extends React.Component {
 
         if(genre!=null){
             return (
-                <div class="w-100">
+                <div class="mx-auto w-100">
                     <h4 class="py-3">Recomendaciones: {genre}</h4>
                     <div class="d-flex">
                         {books ? books.map(book =>
-                        <div class="col-md-3 text-left">
+                        <div class="col-sm-12 col-md-6 col-lg-3 text-left">
                             <div class="card m-2 p-2">
                                 <div class="row" key={book.volumeInfo.id} onClick={() => this.handleBookClick(book.volumeInfo.previewLink)}>
                                 
