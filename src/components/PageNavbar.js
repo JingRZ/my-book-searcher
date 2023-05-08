@@ -25,10 +25,6 @@ export default class PageNavbar extends React.Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   localStorage.setItem('username', JSON.stringify(this.state.username));
-  // }
-
   render() {
 
     const storedUsername = JSON.parse(localStorage.getItem('username'));
@@ -43,10 +39,12 @@ export default class PageNavbar extends React.Component {
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="w-100"></div>
+              <div class="d-flex justify-content-end m-2">
+                <EditableField value={defaultUsername} onSave={this.handleSave}/>
+                <div class="user-icon"></div>
+              </div>
           </div>
-          
-          <EditableField value={defaultUsername} onSave={this.handleSave}/>
-          <div class="user-icon"></div>
       </nav>
     )
   }
